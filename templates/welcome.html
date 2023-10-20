@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title> Welcome </title>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center">
+        <div class="bank-box py-5 px-5">
+            <h1 id="welcome-h1" class="text-center mb-4">Welcome,{{ username }} !</h1>
+            <p class="lead">Your Balance: {{ balance }}</p>
+            <br>
+            <div class="wallet-id-box">
+                <label for="walletID">Your Wallet ID :</label>
+                <br>
+                <textarea id="walletID" class="form-control" rows="5" readonly>{{ wallet_ID }}</textarea>
+                <br>
+            </div>
+            <div class="public-key-box">
+                <br>
+                <label for="publicKey">Your Public Key :</label>
+                <textarea id="publicKey" class="form-control" rows="5" readonly>{{ public_key }}</textarea>
+                <br>
+            </div>
+
+            <!-- Inside the 'bank-box' div, probably below the wallet ID display -->
+            <form action="/transaction-input" method="get">
+                <button id="welcome-btn" type="submit" class="btn btn-primary">Pay Now</button>
+            </form>
+            <footer id="welcome-foot" class="text-center mt-4">
+                <p>&copy; 2023 Post-Quantum Banking</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

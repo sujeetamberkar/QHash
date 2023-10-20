@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Professional Banking</title>
+</head>
+
+<body>
+
+    <div id="home-container" class="container d-flex justify-content-center">
+        <div class="bank-box py-5 px-5">
+            <h1 class="text-center mb-6">Welcome to POST-Quantum Banking!</h1>
+
+            <form action="/verification-menu" method="get" class="mb-3">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="verifyButton">Verify
+                    Transaction</button>
+            </form>
+
+
+            <form action="/make-transaction" method="post" class="mb-3">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="makeButton">Make
+                    Transaction</button>
+            </form>
+            <footer class="text-center mt-4" id="home-foot">
+                <p>&copy; 2023 Post-Quantum Banking</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

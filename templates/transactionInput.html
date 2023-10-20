@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Transaction Input</title>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center">
+        <div class="bank-box py-4 px-5">
+            <h1 id="transaction_h1" class="text-center mb-4">Payment Gateway</h1>
+            <!-- Error message display starts here -->
+            {% if error %}
+            <div class="alert alert-danger">
+                {{ error }}
+            </div>
+            {% endif %}
+            <!-- Error message display ends here -->
+            <form action="/process-payment" method="post" class="mb-3">
+                <div class="form-group">
+                    <label for="senderWalletID">Sender Wallet ID :</label>
+                    <input type="text" id="senderWalletID" value="{{ wallet_ID }}" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="currentBalance">Current Balance :</label>
+                    <input type="text" id="currentBalance" value="{{ balance }}" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="recipientWalletID">Recipient Wallet ID :</label>
+                    <input type="text" id="recipientWalletID" name="recipientWalletID" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="Amount">Amount :</label>
+                    <input type="number" id="Amount" name="Amount" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="Remarks">Remarks :</label>
+                    <textarea id="Remarks" name="Remarks" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" id="transaction-btn" class="btn btn-primary">Submit Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

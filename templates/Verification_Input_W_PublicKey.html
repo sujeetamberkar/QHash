@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Verify with Public Key</title>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center">
+        <div class="bank-box py-4 px-7">
+            <h3 id="public_key-h4" class="text-center mb-4">Verify Transaction with Public Key</h1>
+
+                <form action="/process-verification-public-key" method="post" class="mb-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="public-key-input" name="publicKey"
+                            placeholder="Public Key" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="public-key-input1" name="transactionID"
+                            placeholder="Transaction ID" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="public-key-input2" name="timeStamp"
+                            placeholder="Time Stamp" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="public-key-input3" name="senderWalletID"
+                            placeholder="Sender Wallet ID" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="public-key-input4" name="recipientWalletID"
+                            placeholder="Recipient Wallet ID" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="public-key-input4" name="Amount"
+                            placeholder="Amount" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="public-key-input5" name="Remarks"
+                            placeholder="Remarks">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="public-key-input6" name="signature"
+                            placeholder="Signature" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" id="public-key-btn">Submit for
+                        Verification</button>
+                </form>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

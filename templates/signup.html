@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Sign Up</title>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center">
+        <div class="bank-box py-5 px-4">
+            <h1 id="sign-up-h1" class="text-center mb-4">Sign Up</h1>
+
+            <!-- Flash messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('signup') }}" method="post" class="mb-3">
+                <div class="form-group">
+                    <!-- <label for="username" id="sign-up-label1">Username :</label> -->
+                    <input type="text" id="signup-input1" class="form-control" id="username" name="username"
+                        placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <!-- <label for="password" id="sign-up-label3">Password :</label> -->
+                    <input type="password" id="signup-input2" class="form-control" id="password" placeholder="Password"
+                        name="password" required>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="confirmPassword" id="sign-up-label3">Confirm Password :</label> -->
+                    <input type="password" id="signup-input3" class="form-control" id="confirmPassword"
+                        placeholder="Confirm Password" required>
+                    <span id="message" class="d-none text-danger">Passwords do not match!</span>
+                </div>
+                <button id="signup-btn" type="submit" class="btn btn-outline-primary btn-lg btn-block">Create</button>
+            </form>
+            <footer id="signup-foot" class="text-center mt-4">
+                <p>&copy; 2023 Post-Quantum Banking</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                document.getElementById('message').classList.remove('d-none');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brute Force Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/hacker_vibes.css" rel="stylesheet">
+    <style>
+        .signature-box {
+            white-space: pre-wrap;
+            word-break: break-all;
+            border: 1px solid #1ce;
+            padding: 10px;
+            background-color: #333;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mt-5">Brute Force Signature Verification Result</h2>
+        <div class="mt-4 text-left">
+            <p><strong>Username (if found):</strong> {{ username }}</p>
+            <p><strong>Message:</strong> {{ message }}</p>
+            <p><strong>Signature:</strong></p>
+            <div class="signature-box">{{ signature }}</div>
+        </div>
+    </div>
+</body>
+</html>

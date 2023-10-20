@@ -1,0 +1,7 @@
+import base64
+import binascii
+
+b="""b'4\xaf\xb7\xf5\xe4\x06\xd9\xb1\xe3\xd6\x06\xa4\'\x81b\n\xd2\xdc\x8d\xfb\x08\xa5\x1a\x95\x9eJ({\x03\xe4\x8d^\xef-4\x84q\x15\xbb-(\x83\xdbQ\xbf\x1fX\xfb\xe7"\xfcj3$K\x83d?w\xa8\x00\x00\x00'"""
+sig = "34afb7f5e406d9b1e3d606a42781620ad2dc8dfb08a51a959e4a287b03e48d5eef2d34847115bb2d2883db51bf1f58fbe722fc6a33244b83643f77a8000000"
+ab=bytes.fromhex(sig)
+print(ab)

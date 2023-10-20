@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Professional Banking</title>
+</head>
+
+<body>
+    <div id="verification-menu" class="container d-flex justify-content-center"> <!-- container with grey background -->
+        <div class="bank-box py-5 px-5"> <!-- centered white box -->
+            <!-- content specific to VerificationMenu.html -->
+            <h1 class="text-center mb-4" id="Verification-h1">Choose Verification Method</h1>
+            <a id="verification-menu-public" href="/verification-input-public-key"
+                class="btn btn-primary btn-lg btn-block">Verify using Public
+                Key</a>
+            <a id="verification-menu-force" href="/verification-input-brute-force"
+                class="btn btn-secondary btn-lg btn-block">Verify using Brute
+                Force</a>
+        </div>
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

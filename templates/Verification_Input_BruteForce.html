@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Verify with Brute Force</title>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center">
+        <div class="bank-box py-4 px-4">
+            <h1 class="text-center mb-4" id="brute-h1">Verify Transaction with Brute Force</h1>
+
+            <form action="/process-verification-brute-force" method="post" class="mb-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="transactionID" id="brute-input"
+                        placeholder="Transaction ID" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="timeStamp" id="brute-input1" placeholder="Time Stamp"
+                        required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="brute-input2" name="senderWalletID"
+                        placeholder="Sender Wallet ID" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;"> <!-- Custom space below this div -->
+                    <input type="text" class="form-control" id="brute-input3" name="recipientWalletID"
+                        placeholder="Recipient Wallet ID" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id="brute-input4" name="Amount" placeholder="Amount"
+                        required>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id="brute-input5" name="Remarks" placeholder="Remarks">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="brute-input6" name="signature" placeholder="Signature"
+                        required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" id="brute-btn">Submit for Verification</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

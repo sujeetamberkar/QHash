@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Payment Receipt</title>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center">
+        <div class="bank-box py-5 px-5">
+            <h1 class="text-center mb-4" id="payment-h1">Payment Receipt</h1>
+            <br>
+            <h6 class="lead" style="font-weight:bold;">Transaction ID: {{ receipt['Transaction_ID'] }}</h6>
+            <h6 class="lead" style="font-weight:bold;">Transaction Time: {{ receipt['Time_Stamp'] }}</h6>
+            <br>
+            <div class="form-group">
+                <label>Sender Wallet ID :</label>
+                <textarea class="form-control" rows="4" style="resize: none;"
+                    readonly>{{ receipt['Sender_Wallet_ID'] }}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Recipient Wallet ID :</label>
+                <textarea class="form-control" rows="4" style="resize: none;"
+                    readonly>{{ receipt['Recipient_Wallet_ID'] }}</textarea>
+            </div>
+            <br>
+            <h6 class="lead" style="font-weight:bold;">Amount : {{ receipt['Amount'] }}</h6>
+            <h6 class="lead" style="font-weight:bold;">Remarks : {{ receipt['Remarks'] }}</h6>
+            <br>
+            <div class="form-group">
+                <label>Signature:</label>
+                <textarea class="form-control" rows="4" style="resize: none;"
+                    readonly>{{ receipt['signature'] }}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

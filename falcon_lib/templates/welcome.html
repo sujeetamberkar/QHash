@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/hacker_vibes.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mt-5">Welcome, {{ username }}!</h2>
+        <div class="mt-4 text-left">
+            <div class="form-group">
+                <label for="publicKeyDisplay"><strong>Public Key:</strong></label>
+                <textarea class="form-control" id="publicKeyDisplay" rows="3" readonly>{{ public_key }}</textarea>
+                <button onclick="copyToClipboard('publicKeyDisplay')" class="btn btn-block mt-2">Copy Public Key</button>
+            </div>
+            <div class="form-group">
+                <label for="secretKeyDisplay"><strong>Secret Key:</strong></label>
+                <textarea class="form-control" id="secretKeyDisplay" rows="3" readonly>{{ secret_key }}</textarea>
+                <button onclick="copyToClipboard('secretKeyDisplay')" class="btn btn-block mt-2">Copy Secret Key</button>
+            </div>
+            <button onclick="location.href='/sign-message'" class="btn btn-block">Sign a Message</button>
+            <button onclick="location.href='/verify'" class="btn btn-block">Verify Signature</button>
+            <button onclick="location.href='/bruteforce'" class="btn btn-block">Brute Force</button>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            var text = document.getElementById(elementId).innerText;
+            
+            if (elementId === 'publicKeyDisplay') {
+                var matches = text.match(/\[(.*?)\]/);
+                if (matches && matches[1]) {
+                    text = matches[1].trim();
+                }
+            }
+    
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert("Copied to clipboard!");
+        }
+    </script>
+</body>
+</html>

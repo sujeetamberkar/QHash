@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Result</title>
+    <!-- Bootstrap CSS for enhanced design -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles for "hacker vibe" -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script>
+        function copyToClipboard(elementId) {
+            var text = document.getElementById(elementId).innerText;
+            
+            // Check if the elementId is "publicKey" and process accordingly
+            if(elementId === 'publicKey') {
+                // Use regex to extract numbers inside the brackets
+                var matches = text.match(/\[(.*?)\]/);
+                if(matches && matches[1]) {
+                    // Split the matched content by comma and get the numbers
+                    text = matches[1].trim();
+                }
+            }
+        
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert("Copied to clipboard!");
+        }
+        
+        
+    </script>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h3>Your Signature Details:</h3>
+    <p><strong>Message:</strong> <span id="message">{{ message }}</span> <button onclick="copyToClipboard('message')" class="btn btn-light">Copy</button></p>
+    <p><strong>Public Key:</strong> <span id="publicKey">{{ publicKey }}</span> <button onclick="copyToClipboard('publicKey')" class="btn btn-light">Copy</button></p>
+    <p><strong>Signature:</strong> <span id="signature">{{ signature }}</span> <button onclick="copyToClipboard('signature')" class="btn btn-light">Copy</button></p>
+    <p><strong>Private Key:</strong> <span id="privateKey">{{ secretKey }}</span> <button onclick="copyToClipboard('privateKey')" class="btn btn-light">Copy</button></p>
+    <a href="/" class="btn btn-secondary">Go back</a>
+</div>
+
+<!-- Optional Bootstrap JS and Popper.js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

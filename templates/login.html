@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center">
+        <div class="bank-box py-5 px-5">
+            <h1 class="text-center mb-4" style="font-size:1.5rem;">Login</h1>
+            <form action="/validate-login" method="post" class="mb-3">
+                <div class="form-group">
+                    <!-- <label for="username">Username:</label> -->
+                    <input type="text" placeholder="Username" class="form-control" id="username" name="username"
+                        required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <!-- <label for="password">Password:</label> -->
+                    <input type="password" placeholder="Password" class="form-control" id="password" name="password"
+                        required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="login-button">Login</button>
+            </form>
+            <div class="text-center">
+                <p>Don't have an account <a href="/signup" class="text-primary" id="login-link"> Create one </a></p>
+            </div>
+            <footer class="text-center mt-4" id="login-foot">
+                <p>&copy; 2023 Post-Quantum Banking</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

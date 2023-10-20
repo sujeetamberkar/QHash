@@ -1,0 +1,33 @@
+
+body {
+    background-color: #121212;
+    color: #1ce;
+    font-family: 'Courier New', Courier, monospace;
+}
+.container {
+    max-width: 400px;
+    margin-top: 100px;
+    border: 2px solid #1ce;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #222;
+}
+.btn {
+    background-color: #1ce;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #0ab;
+}
+label {
+    color: #1ce;
+}
+.form-control {
+    background-color: #333;
+    color: #1ce;
+    border-color: #1ce;
+}
+::placeholder {
+    color: #1ce;
+}

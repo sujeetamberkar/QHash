@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sign In
+  </title>
+  <link href="/static/hacker_vibes.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px;">
+   <!-- Display Flash Messages -->
+   {% with messages = get_flashed_messages() %}
+            {% if messages %}
+   <div class="flash-messages">
+    {% for message in messages %}
+    <p class="flash-message">
+     {{ message }}
+    </p>
+    {% endfor %}
+   </div>
+   {% endif %}
+        {% endwith %}
+   <!-- Sign In Form -->
+   <form action="/sign-in" class="" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
+    <h2>
+     Sign In
+    </h2>
+    <input class="" name="username" placeholder="Username" required="" style="padding: 10px; border-radius: 5px; border: 1px solid #1ce; background-color: #333; color: #1ce;" type="text"/>
+    <input class="" name="password" placeholder="Password" required="" style="padding: 10px; border-radius: 5px; border: 1px solid #1ce; background-color: #333; color: #1ce;" type="password"/>
+    <button class="" style="padding: 10px; border-radius: 5px; border: 1px solid #1ce; background-color: #1ce; color: #121212; cursor: pointer;" type="submit">
+     Sign In
+    </button>
+   </form>
+   <p>
+    Don't have an account?
+    <a href="/signup" style="color: #1ce;">
+     Sign Up
+    </a>
+   </p>
+  </div>
+ </body>
+</html>
