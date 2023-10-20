@@ -312,6 +312,7 @@ def process_verification_brute_force():
         return redirect(url_for('verification_input_brute_force'))
     
     BruteForce_Input_DICT = {
+        
         "Transaction_ID": transactionID,
         "Time_Stamp": timeStamp,
         "Sender_Wallet_ID": senderWalletID,
@@ -384,7 +385,7 @@ def validate_login():
 def transaction_input():
     with open("session.json", "r") as file:
         user_data = json.load(file)
-    return render_template('transactionInput.html', wallet_ID=user_data['wallet_ID'], balance=user_data['balance'])
+    return render_template('transactionInput.html', wallet_ID=user_data['username'], balance=user_data['balance'])
 
 @app.route('/process-payment', methods=['POST'])
 def process_payment():
@@ -427,13 +428,13 @@ def process_payment():
     Amount = float (Amount)
     # Update the sender's balance
     users_collection.update_one(
-        {"wallet_ID": sender_wallet_id},
+        {"username": sender_wallet_id},
         {"$inc": {"balance": - Amount}}  # Decrease by 'amount'
     )
 
     # Update the recipient's balance
     users_collection.update_one(
-        {"wallet_ID": recipient_wallet_id},
+        {"username": recipient_wallet_id},
         {"$inc": {"balance": Amount}}  # Increase by 'amount'
     )
 
