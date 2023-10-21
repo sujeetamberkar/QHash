@@ -1,3 +1,4 @@
+#FInal
 from flask import Flask, render_template, request, redirect, url_for, flash
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -38,7 +39,7 @@ def signature_process():
     data_string = json.dumps(Transacation_Tranascript, indent=4)
     #data_string = data_string.hex()
     byte_format_string =  string_to_bytes(data_string)
-    print(f"\n\n{byte_format_string}\n\n")
+    # print(f"\n\n{byte_format_string}\n\n")
     
     with open ("session.json", "r") as file:
         user_data = json.load(file)
@@ -51,7 +52,7 @@ def signature_process():
     sk = SecretKey(16,poly)
     signature_Byte = sk.sign(byte_format_string)
     signature = signature_Byte.hex()
-    print(f"Signature1 : {signature}")
+    # print(f"Signature1 : {signature}")
     # global global_var_sig_1
     # global global_var_data_1
     
@@ -118,8 +119,8 @@ def dict_to_pdf(data, output_filename):
     labels = {
         'Transaction_ID': 'Transaction ID',
         'Time_Stamp': 'Time Stamp',
-        'Sender_Wallet_ID': 'Sender Wallet ID',
-        'Recipient_Wallet_ID': 'Recipient Wallet ID',
+        'Sender_Wallet_ID': 'Sender Username',
+        'Recipient_Wallet_ID': 'Recipient Username',
         'Amount': 'Amount',
         'Remarks': 'Remarks',
         'Signature': 'Signature'
@@ -398,7 +399,7 @@ def process_payment():
     with open("session.json", "r") as file:
         user_data = json.load(file)
 
-    sender_wallet_id = user_data['wallet_ID']
+    sender_wallet_id = user_data['username']
     balance = float(user_data['balance'])  # Assuming balance is stored as a float (or convert from string)
 
     # Check if balance is sufficient
@@ -422,15 +423,27 @@ def process_payment():
         "Amount": Amount,
         "Remarks": Remarks
     }
+
     json_file_name = "transaction_summary.json"
     with open(json_file_name, 'w') as json_file:
         json.dump(transaction_summary, json_file)
     Amount = float (Amount)
     # Update the sender's balance
+    print("Aaaaaaaaaaaaaa\n\n\n",sender_wallet_id)
     users_collection.update_one(
         {"username": sender_wallet_id},
         {"$inc": {"balance": - Amount}}  # Decrease by 'amount'
     )
+
+    # print(sender_wallet_id)
+    # tempVar = users_collection.find_one({"username": sender_wallet_id})
+    # if tempVar:
+    #     print(tempVar)
+    #     balance = tempVar.get("balance")
+    #     new_balance = balance - Amount
+    #     users_collection.update_one({"username": sender_wallet_id}, {"$set": {"balance": new_balance}})
+    #     print(f"Updated balance for user {sender_wallet_id} to {new_balance}")
+
 
     # Update the recipient's balance
     users_collection.update_one(
@@ -438,10 +451,11 @@ def process_payment():
         {"$inc": {"balance": Amount}}  # Increase by 'amount'
     )
 
+
     signature = signature_process()
 
     Generated_Signature = signature # Will change later
-    print(f"Genrate_Signature : {Generated_Signature}")
+    # print(f"Genrate_Signature : {Generated_Signature}")
     payment_reciept_Dict = transaction_summary
 
     payment_reciept_Dict["signature"] = Generated_Signature
