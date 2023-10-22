@@ -36,7 +36,7 @@ Q-Hash is the first quantum-proof Banking prototype
     - 2) We feel as of now this method of payment is only available for transactions above 75k.
     - 3) We plan on generating revenue by charging a 1% fee on every transaction.
     - 4) Whenever there is a dispute or a need for transparency and reliability to prevent corruption, we recommend our payment model
-    -5) Possible customers are 
+    - 5) Possible customers are 
         a) Gov contracts
         b) Weapons Transaction 
         c) Luxury Shopping  
