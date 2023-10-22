@@ -42,7 +42,7 @@ If the user has sufficient balance we will convert the transaction details into 
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/sujeetamberkar/testcase
+git clone https://github.com/sujeetamberkar/QHash
 ```
 
 Navigate to the project directory and install the dependencies:
