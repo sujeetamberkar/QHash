@@ -499,7 +499,3 @@ def generate_random_5_digit_number_as_string():
 if __name__ == '__main__':
     app.secret_key = 'your_secret'  # Replace 'your_secret' with a real secret key
     app.run(host="0.0.0.0",port=2000,debug=True)
-
-
-
-
