@@ -75,6 +75,4 @@ Access the application in your web browser at `http://127.0.0.1:5000/`.
 
 ## Authors
 - [Sujeet Amberkar](https://www.linkedin.com/in/sujeet-amberkar-40b2021b4/?originalSubdomain=in)
-- [Utkarsh Dubey](https://github.com/Utkarsh0Dubey)
 - [Adithi Bhat](https://www.linkedin.com/in/adithi-bhat-472b3b1b1/)
-- [Rashi Gokharu](https://www.linkedin.com/in/rashi-gokharu-a5069625b/)
